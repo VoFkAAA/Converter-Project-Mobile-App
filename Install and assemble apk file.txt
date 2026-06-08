@@ -1,0 +1,16 @@
+# 1. Клонируем репозиторий
+git clone {репозиторий}
+cd {репозиторий}
+
+# 2. Устанавливаем зависимости
+npm install
+
+# 3. Копируем веб-файлы (index.html и др.) в Android проект
+npx cap copy android
+
+# 4. Синхронизируем плагины и конфиги
+npx cap sync android
+
+# 5. Переходим в папку Android и собираем APK
+cd android
+./gradlew assembleDebug
