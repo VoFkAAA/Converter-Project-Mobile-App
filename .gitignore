@@ -1,0 +1,23 @@
+# Зависимости (ВСЕГДА должны быть в .gitignore)
+node_modules/
+
+# Результаты сборки веб-части
+www/
+dist/
+
+# Файлы Capacitor, которые генерируются заново
+capacitor.config.json
+
+# IDE и системные файлы
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# Временные файлы
+*.tmp
+*.swp
+*.swo
+*~
