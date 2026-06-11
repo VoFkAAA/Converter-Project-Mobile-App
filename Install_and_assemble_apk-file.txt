@@ -1,0 +1,19 @@
+# 1. Клонировать репозиторий и перейти в расположение
+git clone {репозиторий}
+cd {репозиторий}
+
+# 2. Установить зависимости
+npm install
+
+# 3. Копировать веб-файлы (index.html и др.) в Android-проект
+npx cap copy android
+
+# 4. Синхронизировать плагины и конфиги
+npx cap sync android
+
+# 5. Перейти в папку Android и собрать apk-файл
+cd android
+./gradlew assembleDebug
+
+# 6. Готовый apk-файл после успешной сборки будет в папке:
+{путь_до_проекта}\Converter-Project-Mobile-App\mobile\android\app\build\outputs\apk\debug\app-debug.apk
