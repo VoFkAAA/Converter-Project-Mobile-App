@@ -1,19 +1,26 @@
-# 1. Клонировать репозиторий и перейти в расположение
-git clone {репозиторий}
-cd {репозиторий}
+# 1. Клонировать репозиторий и перейти в папку mobile
+git clone https://github.com/VoFkAAA/Converter-Project-Mobile-App
+cd Converter-Project-Mobile-App/mobile
 
-# 2. Установить зависимости
+# 2. Установить зависимости Node.js
 npm install
 
-# 3. Копировать веб-файлы (index.html и др.) в Android-проект
-npx cap copy android
+# 3. Установить Capacitor (если ещё не установлен в зависимостях)
+npm install @capacitor/core @capacitor/cli @capacitor/android
 
-# 4. Синхронизировать плагины и конфиги
-npx cap sync android
+# 4. Инициализировать Capacitor (создаст capacitor.config.json)
+npx cap init "Конвертер даты" "com.qa.dateconverter" --web-dir=.
 
-# 5. Перейти в папку Android и собрать apk-файл
+# 5. Добавить Android-платформу (создаст папку android)
+npx cap add android
+
+# 6. Скопировать веб-файлы (index.html) в Android-проект
+npx cap copy
+
+# 7. Перейти в папку Android и собрать APK
 cd android
-./gradlew assembleDebug
+.\gradlew assembleDebug --no-daemon			# Windows
+./gradlew assembleDebug --no-daemon			# Mac/Linux
 
-# 6. Готовый apk-файл после успешной сборки будет в папке:
-{путь_до_проекта}\Converter-Project-Mobile-App\mobile\android\app\build\outputs\apk\debug\app-debug.apk
+# 8. Готовый APK находится здесь:
+Converter-Project-Mobile-App/mobile/android/app/build/outputs/apk/debug/app-debug.apk
