@@ -3,8 +3,6 @@ node_modules/
 
 # Результаты сборки веб-части  
 dist/
-mobile/android/
-**/android/
 
 # Файлы Capacitor, которые генерируются заново
 capacitor.config.json
