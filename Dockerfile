@@ -1,5 +1,4 @@
-
-# На первом этапе собираем приложение через npm
+# На первом этапе собираем приложение через образ node
 FROM node:22 AS node_builder
 # Мотнируем папку с кодом в контейнер в папку /app
 ADD . /app
@@ -12,7 +11,7 @@ RUN npx cap add android
 RUN npx cap copy android
 RUN npx cap sync android
 
-# На втором этапе собираем apk-файл через официальный образ docker gradle
+# На втором этапе собираем apk-файл через образ docker gradle
 FROM mobiledevops/android-sdk-image:34.0.0
 # Копируем кодовую базу из первого этапа (node:22)
 COPY --from=node_builder /app /app
